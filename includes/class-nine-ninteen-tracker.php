@@ -108,6 +108,7 @@ class Nine_Ninteen_Tracker {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-nine-ninteen-tracker-i18n.php';
 
+
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
@@ -153,8 +154,17 @@ class Nine_Ninteen_Tracker {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action( 'init' , $plugin_admin , 'nnpress_tracker_post_type');
+		$this->loader->add_action( 'init', $plugin_admin, 'nnpress_custom_new_archive_post_status');
+		$this->loader->add_action( 'post_submitbox_misc_actions',  $plugin_admin, 'add_to_post_status_dropdown');
+		
 
 	}
+
+
+
+
+
 
 	/**
 	 * Register all of the hooks related to the public-facing functionality
@@ -213,3 +223,5 @@ class Nine_Ninteen_Tracker {
 	}
 
 }
+
+

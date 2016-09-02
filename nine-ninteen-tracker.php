@@ -57,6 +57,8 @@ register_deactivation_hook( __FILE__, 'deactivate_nine_ninteen_tracker' );
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-nine-ninteen-tracker.php';
 
+
+
 /**
  * Begins execution of the plugin.
  *
@@ -73,3 +75,8 @@ function run_nine_ninteen_tracker() {
 
 }
 run_nine_ninteen_tracker();
+
+
+add_action('admin_footer-post.php', 'jc_append_post_status_list');
+
+
