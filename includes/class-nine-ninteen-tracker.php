@@ -120,6 +120,10 @@ class Nine_Ninteen_Tracker {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-nine-ninteen-tracker-public.php';
 
+
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-tgm-plugin-activation.php';
+
+
 		$this->loader = new Nine_Ninteen_Tracker_Loader();
 
 	}
@@ -155,15 +159,14 @@ class Nine_Ninteen_Tracker {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 		$this->loader->add_action( 'init' , $plugin_admin , 'nnpress_tracker_post_type');
+		$this->loader->add_action( 'init' , $plugin_admin , 'nnpress_tracker_type');
 		$this->loader->add_action( 'init', $plugin_admin, 'nnpress_custom_new_archive_post_status');
 		$this->loader->add_action( 'post_submitbox_misc_actions',  $plugin_admin, 'add_to_post_status_dropdown');
+		$this->loader->add_action( 'tgmpa_register' ,$plugin_admin ,'ninteen_required_plugins' );
+		$this->loader->add_filter( 'rwmb_meta_boxes' , $plugin_admin, 'ninteen_meta_boxes' );
 		
 
 	}
-
-
-
-
 
 
 	/**
@@ -179,6 +182,11 @@ class Nine_Ninteen_Tracker {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+		$this->loader->add_filter( 'single_template' , $plugin_public , 'nnpress_single_page_templates');
+
+		$this->loader->add_action('wp_ajax_nnpress_get_tracking_data' , $plugin_public , 'nnpress_get_tracking_data' );
+		$this->loader->add_action('wp_ajax_nopriv_nnpress_get_tracking_data' , $plugin_public , 'nnpress_get_tracking_data' );
 
 	}
 

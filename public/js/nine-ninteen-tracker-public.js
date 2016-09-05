@@ -29,4 +29,43 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
+
+	 $('#track-now').on('click' , function(){
+
+
+	 	var trackingId = $('#tracking-input').val();
+	 	var loader = $('.loader-wrapper');
+	 	var results = $('.results-data');
+
+	 	if( trackingId != ""){
+
+	 		loader.show();
+	 		results.empty();
+
+	 		var postId = $('#tracking-input').val().substr(3);
+
+	 		$.post(
+
+	 			'http://localhost/project-press/wp-admin/admin-ajax.php',
+
+	 			{
+	 				action:'nnpress_get_tracking_data',
+	 				postId:postId
+	 			},
+
+	 			function (response ){
+
+
+	 				$('.loader-wrapper').hide();
+	 				var responseData = JSON.parse(response);
+
+            			results.append(responseData);
+
+	 			}
+
+	 			);
+	 	}
+
+	 });
+
 })( jQuery );

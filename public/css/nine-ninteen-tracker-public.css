@@ -2,3 +2,79 @@
  * All of the CSS for your public-facing functionality should be
  * included in this file.
  */
+
+@import url('font/flaticon.css');
+
+.clear-fix{
+	clear: both;
+}
+ .single-nn_tracker .type-nn_tracker{
+	margin-top: 2em;
+	margin-bottom: 2em;
+	padding-top: 8.3333% !important;
+
+ }
+ .single-nn_tracker .type-nn_tracker .post-thumbnail img{
+ 	width: 40vh;
+ 	height: 40vh;
+ 	border-radius: 50%;
+ }
+
+  .single-nn_tracker .type-nn_tracker .entry-meta{
+ 	background-color:#f1f1f1;
+ 	padding: 5% 10%;
+ }
+
+  .single-nn_tracker .type-nn_tracker .entry-meta i{
+  	margin-right: 10px;
+  }
+
+  .single-nn_tracker .type-nn_tracker .entry-meta .posted-on:before{
+  	font-size: 2em;
+  }
+
+
+ .tracking-from button{
+	margin-top: 1em;
+	float: right;
+ }
+
+ .tracking-from svg {
+  width: 100px;
+  height: 100px;
+  margin: 20px auto;
+  display: block;
+}
+
+.package-deatils .post-thumbnail{
+	width: 30%;
+	display: inline-block;
+}
+
+.package-deatils .post-thumbnail img{
+	border-radius: 50%;
+	vertical-align: middle;
+}
+
+.package-deatils .package-data{
+	width:70%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.package-deatils .package-data h4 , p{
+	margin: 1em;
+}
+
+.package-deatils .package-data p i {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	padding: 10px;
+	margin: 1em;
+
+}
+
+.dispatched i {
+	background-color: #FFDA44;
+}
